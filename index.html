@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>TP FORMULAIRE</title>
+		<meta charset="utf-8">
+		<meta name="description" content="TP FORMULAIRE">
+		<!-- For Internet Explhorreur : to force css3 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!-- Tablettes 'n' Mobiles -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- main css and js -->
+		<script type="text/javascript" src="/js/main.js" defer></script>
+		<link rel="stylesheet" href="/css/style.css">
+		<script type="text/javascript" src="jquery_3_3_1.js"></script>
+	    <link rel="stylesheet" type="text/css" href="datatables.min.css">
+    	<script type="text/javascript" charset="utf8" src="datatables.min.js"></script>
+
+	</head>
+
+<body>
+
+	<div id="page">
+		<header><!-- Entête de la zone considérée --></header>
+
+		<nav><!-- Nav. principale de la page --></nav>
+
+		<aside><!-- Les à-cotés de la page --></aside>
+
+		<!-- Contenu textuel de la page -->
+		<section>
+			<table id="table_personnes" border="1">
+			</table>
+			<p>Prénom : <input type="text" name="prenom" id="prenom"></p>
+			<p>Nom : <input type="text" name="nom" id="nom"></p>
+			<p>Age : <input type="text" name="age" id="age"></p>
+			<p>Téléphone : <input type="text" name="telephone" id="telephone"></p>
+			<p>Email : <input type="text" name="email" id="email"></p>
+			<p>
+				<button onClick="ajoutPersonne()" class="btn_action" id="btn_ajouter">AJOUTER</button>
+				&nbsp;&nbsp;&nbsp;
+				<button onClick="majPersonne()" class="btn_action hide" id="btn_modifier">MODIFIER</button>
+				&nbsp;&nbsp;&nbsp;
+				<button onClick="annulPersonne()" class="btn_save hide" id="btn_annuler">ANNULER</button>
+			</p>
+		</section>
+
+		<footer><!-- Pied-de-page de la page --></footer>
+	</div>
+
+</body>
+</html>
+
