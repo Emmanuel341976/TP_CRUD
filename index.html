@@ -28,19 +28,47 @@
 
 		<!-- Contenu textuel de la page -->
 		<section>
-			<table id="table_personnes" border="1">
+			<table id="table_films" border="1">
 			</table>
-			<p>Prénom : <input type="text" name="prenom" id="prenom"></p>
-			<p>Nom : <input type="text" name="nom" id="nom"></p>
-			<p>Age : <input type="text" name="age" id="age"></p>
-			<p>Téléphone : <input type="text" name="telephone" id="telephone"></p>
-			<p>Email : <input type="text" name="email" id="email"></p>
+			<p>Titre : <input type="text" name="titre" id="titre"></p>
+			<p>Année de sortie : <input type="text" name="annee" id="annee"></p>
+			<p>Réalisateur : <input type="text" name="realisateur" id="realisateur"></p>
+			<p>Acteur : <input type="text" name="acteur" id="acteur"></p>
+			<p>Genre : <input type="text" name="genre" id="genre"></p>
+			<p>Type : <input type="text" name="type" id="type"></p>
+			<p>Classement : <input type="text" name="classement" id="classement"></p>
+			<label for="support">Support :</label>
+
+				<select name="pets" id="pet-select">
+					<option value="">Type de support</option>
+					<option value="DVD">DVD</option>
+					<option value="Blue Ray">Blue Ray</option>
+					<option value="Blue Ray 4K">Blue Ray 4K</option>
+				</select>
+			<fieldset>
+				<legend>Film prêté:</legend>
+			
+				<div>
+				  <input type="radio" id="oui" name="pret" value="Oui"
+						 checked>
+				  <label for="oui">Oui</label>
+				</div>
+			
+				<div>
+				  <input type="radio" id="non" name="pret" value="Non">
+				  <label for="non">Non</label>
+				</div>
+
+			</fieldset>
+
+			<p>Visionné : <input type="text" name="age" id="age"></p>
+
 			<p>
 				<button onClick="ajoutPersonne()" class="btn_action" id="btn_ajouter">AJOUTER</button>
 				&nbsp;&nbsp;&nbsp;
-				<button onClick="majPersonne()" class="btn_action hide" id="btn_modifier">MODIFIER</button>
+				<button onClick="majPersonne()" class="btn_action" id="btn_modifier">MODIFIER</button>
 				&nbsp;&nbsp;&nbsp;
-				<button onClick="annulPersonne()" class="btn_save hide" id="btn_annuler">ANNULER</button>
+				<button onClick="annulPersonne()" class="btn_save" id="btn_annuler">ANNULER</button>
 			</p>
 		</section>
 
