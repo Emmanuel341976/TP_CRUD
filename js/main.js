@@ -46,7 +46,6 @@ function constructTable() {
 var aOfvideotheque = [];
 aOfvideotheque[0] = [];
 aOfvideotheque[0]["titre"] = "Assasin's Creed";
-aOfvideotheque[0]["miniature"] = "";
 aOfvideotheque[0]["annee"] = "2016";
 aOfvideotheque[0]["realisateur"] = "Justin Kurzel";
 aOfvideotheque[0]["acteur"] = "Michael Fassbender";
@@ -61,7 +60,6 @@ aOfvideotheque[0]["note"] = "2";
 aOfvideotheque[1] = [];
 aOfvideotheque[1]["titre"] =
   "Le seigneur des anneaux la communauté de l'anneau";
-aOfvideotheque[1]["miniature"] = "";
 aOfvideotheque[1]["annee"] = "2001";
 aOfvideotheque[1]["realisateur"] = "Peter Jackson";
 aOfvideotheque[1]["acteur"] = "Elijah Wood";
@@ -75,7 +73,6 @@ aOfvideotheque[1]["note"] = "5";
 
 aOfvideotheque[2] = [];
 aOfvideotheque[2]["titre"] = "Heroes";
-aOfvideotheque[2]["miniature"] = "";
 aOfvideotheque[2]["annee"] = "2006";
 aOfvideotheque[2]["realisateur"] = "Tim Kring";
 aOfvideotheque[2]["acteur"] = "Milo Ventimiglia";
@@ -89,7 +86,6 @@ aOfvideotheque[2]["note"] = "5";
 
 aOfvideotheque[3] = [];
 aOfvideotheque[3]["titre"] = "Chaos";
-aOfvideotheque[3]["miniature"] = "";
 aOfvideotheque[3]["annee"] = "2005";
 aOfvideotheque[3]["realisateur"] = "Tony Giglio";
 aOfvideotheque[3]["acteur"] = "Jason Statham";
@@ -103,7 +99,6 @@ aOfvideotheque[3]["note"] = "3";
 
 aOfvideotheque[4] = [];
 aOfvideotheque[4]["titre"] = "Land Of The Dead";
-aOfvideotheque[4]["miniature"] = "";
 aOfvideotheque[4]["annee"] = "2005";
 aOfvideotheque[4]["realisateur"] = "George Andrew Romero";
 aOfvideotheque[4]["acteur"] = "John Leguizamo";
@@ -117,7 +112,6 @@ aOfvideotheque[4]["note"] = "4";
 
 aOfvideotheque[5] = [];
 aOfvideotheque[5]["titre"] = "Ce que veulent les femmes";
-aOfvideotheque[5]["miniature"] = "";
 aOfvideotheque[5]["annee"] = "2000";
 aOfvideotheque[5]["realisateur"] = "Nancy Meyers";
 aOfvideotheque[5]["acteur"] = "Mel Gibson";
@@ -131,7 +125,6 @@ aOfvideotheque[5]["note"] = "4";
 
 aOfvideotheque[6] = [];
 aOfvideotheque[6]["titre"] = "Bad Taste";
-aOfvideotheque[6]["miniature"] = "";
 aOfvideotheque[6]["annee"] = "1987";
 aOfvideotheque[6]["realisateur"] = "Peter Jackson";
 aOfvideotheque[6]["acteur"] = "Terry Potter";
@@ -145,7 +138,6 @@ aOfvideotheque[6]["note"] = "4";
 
 aOfvideotheque[7] = [];
 aOfvideotheque[7]["titre"] = "Tai-Chi Master";
-aOfvideotheque[7]["miniature"] = "";
 aOfvideotheque[7]["annee"] = "1993";
 aOfvideotheque[7]["realisateur"] = "Yuen Woo-ping";
 aOfvideotheque[7]["acteur"] = "Jet Li";
@@ -159,7 +151,6 @@ aOfvideotheque[7]["note"] = "5";
 
 aOfvideotheque[8] = [];
 aOfvideotheque[8]["titre"] = "Jin Roh";
-aOfvideotheque[8]["miniature"] = "";
 aOfvideotheque[8]["annee"] = "1998";
 aOfvideotheque[8]["realisateur"] = "Hiroyuki Okiura";
 aOfvideotheque[8]["acteur"] = "";
@@ -173,7 +164,6 @@ aOfvideotheque[8]["note"] = "5";
 
 aOfvideotheque[9] = [];
 aOfvideotheque[9]["titre"] = "Skyfall";
-aOfvideotheque[9]["miniature"] = "";
 aOfvideotheque[9]["annee"] = "2012";
 aOfvideotheque[9]["realisateur"] = "Sam Mendes";
 aOfvideotheque[9]["acteur"] = "Daniel Craig";
@@ -187,7 +177,6 @@ aOfvideotheque[9]["note"] = "4";
 
 aOfvideotheque[10] = [];
 aOfvideotheque[10]["titre"] = "Le choc des titans";
-aOfvideotheque[10]["miniature"] = "";
 aOfvideotheque[10]["annee"] = "2010";
 aOfvideotheque[10]["realisateur"] = "Louis Leterrier";
 aOfvideotheque[10]["acteur"] = "Sam Worthington";
@@ -201,7 +190,6 @@ aOfvideotheque[10]["note"] = "2";
 
 aOfvideotheque[11] = [];
 aOfvideotheque[11]["titre"] = "Les mondes de Ralph";
-aOfvideotheque[11]["miniature"] = "";
 aOfvideotheque[11]["annee"] = "2011";
 aOfvideotheque[11]["realisateur"] = "Rich Moore";
 aOfvideotheque[11]["acteur"] = "";
@@ -260,8 +248,8 @@ const configuration = {
   searching: true,
 
   lengthMenu: [
-    [10, 25, 50, 100, -1],
-    ["Dix", "Vingt cinq", "Cinquante", "Cent", "Ze total stp"],
+    [5, 10, 25, 50, 100, -1],
+    ["Cinq", "Dix", "Vingt cinq", "Cinquante", "Cent", "Tout"],
   ],
 
   language: {
