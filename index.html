@@ -9,6 +9,8 @@
 		<!-- Tablettes 'n' Mobiles -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- main css and js -->
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+		<script src="/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/js/main.js" defer></script>
 		<link rel="stylesheet" href="/css/style.css">
 		<script type="text/javascript" src="jquery_3_3_1.js"></script>
@@ -28,48 +30,137 @@
 
 		<!-- Contenu textuel de la page -->
 		<section>
-			<table id="table_films" border="1">
-			</table>
-			<p>Titre : <input type="text" name="titre" id="titre"></p>
-			<p>Année de sortie : <input type="text" name="annee" id="annee"></p>
-			<p>Réalisateur : <input type="text" name="realisateur" id="realisateur"></p>
-			<p>Acteur : <input type="text" name="acteur" id="acteur"></p>
-			<p>Genre : <input type="text" name="genre" id="genre"></p>
-			<p>Type : <input type="text" name="type" id="type"></p>
-			<p>Classement : <input type="text" name="classement" id="classement"></p>
-			<label for="support">Support :</label>
-
-				<select name="pets" id="pet-select">
-					<option value="">Type de support</option>
-					<option value="DVD">DVD</option>
-					<option value="Blue Ray">Blue Ray</option>
-					<option value="Blue Ray 4K">Blue Ray 4K</option>
-				</select>
-			<fieldset>
-				<legend>Film prêté:</legend>
 			
-				<div>
-				  <input type="radio" id="oui" name="pret" value="Oui"
-						 checked>
-				  <label for="oui">Oui</label>
-				</div>
+			<div class="container-fluid">
+				<table class="table mt-3" id="table_films" border="1">
+				</table>
+			</div>
 			
-				<div>
-				  <input type="radio" id="non" name="pret" value="Non">
-				  <label for="non">Non</label>
+
+			<form action="">
+					<div class="form-group ml-4">
+
+						<div class="form-group">
+							<label for="titre" class="col-sm-2 col-form-label">Titre : </label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" name="titre" id="titre" placeholder="Titre">
+						</div>
+
+						<div class="form-group">
+							<label for="annee" class="col-sm-2 col-form-label">Année de sortie : </label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" name="annee" id="annee" placeholder="Année de sortie">
+						</div>
+
+						<div class="form-group">
+							<label for="realisateur" class="col-sm-2 col-form-label">Réalisateur : </label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" name="realisateur" id="realisateur" placeholder="Réalisateur">
+						</div>
+
+						<div class="form-group">
+							<label for="acteur" class="col-sm-2 col-form-label">Acteur : </label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" name="acteur" id="acteur" placeholder="Acteur">
+						</div>
+
+						<div class="form-group">
+							<label for="genre" class="col-sm-2 col-form-label">Genre : </label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" name="genre" id="genre" placeholder="Genre">
+						</div>
+
+						<div class="form-group">
+							<label for="type" class="col-sm-2 col-form-label">Type : </label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" name="type" id="type" placeholder="Type">
+						</div>
+
+
+						<div class="form-group col-sm-2">
+							<label for="classement">Classement :</label>
+
+								<select class="custom-select mr-sm-2 name="classement" id="classement-select">
+									<option value="">Classement</option>
+									<option value="Tout Public">Tout Public</option>
+									<option value="-12 ans">-12 ans</option>
+									<option value="-16 ans">-16 ans</option>
+									<option value="-18 ans">-18 ans</option>
+								</select>
+						</div>
+
+						<div class="form-group col-sm-2">
+
+							<label for="support">Support :</label>
+
+								<select class="custom-select mr-sm-2 name="support" id="support-select">
+									<option value="">Type de support</option>
+									<option value="DVD">DVD</option>
+									<option value="Blu Ray">Blu Ray</option>
+									<option value="Blu Ray 4K">Blu Ray 4K</option>
+								</select>
+
+						</div>
+
+						<fieldset class="form-group col-sm-2">
+							<legend>Film prêté:</legend>
+						
+							<div>
+							<input type="radio" id="oui" name="pret" value="Oui"
+									checked>
+							<label for="oui">Oui</label>
+							</div>
+						
+							<div>
+							<input type="radio" id="non" name="pret" value="Non">
+							<label for="non">Non</label>
+							</div>
+
+						</fieldset>
+
+						<fieldset class="form-group col-sm-2">
+							<legend>Film visionné:</legend>
+						
+							<div>
+							<input type="radio" id="oui" name="visione" value="Oui"
+									checked>
+							<label for="oui">Oui</label>
+							</div>
+						
+							<div>
+							<input type="radio" id="non" name="visione" value="Non">
+							<label for="non">Non</label>
+							</div>
+
+						</fieldset>
+
+						<div class="form-group">
+							<label for="note" class="col-sm-2 col-form-label">Note : </label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" name="note" id="note" placeholder="Note">
+						</div>
+
+						<div class="form-check mt-3">
+							<input type="checkbox" class="form-check-input" id="steelBook">
+							<label class="form-check-label" for="steelBook">SteelBox</label>
+						</div>
+
+					</div>
+
+
+
+			</form>
+
+
+			<div class="container ">
+				<div class="row justify-content-md-center">
+					<button type="button" onClick="ajoutFilm()" class="btn-primary btn-lg" id="btn_ajouter">AJOUTER</button>
+					&nbsp;&nbsp;&nbsp;
+					<button type="button" onClick="majFilm()" class="btn-secondary btn-lg" id="btn_modifier">MODIFIER</button>
+					&nbsp;&nbsp;&nbsp;
+					<button type="button" onClick="annulFilm()" class="btn-danger btn-lg" id="btn_annuler">ANNULER</button>
 				</div>
-
-			</fieldset>
-
-			<p>Visionné : <input type="text" name="age" id="age"></p>
-
-			<p>
-				<button onClick="ajoutPersonne()" class="btn_action" id="btn_ajouter">AJOUTER</button>
-				&nbsp;&nbsp;&nbsp;
-				<button onClick="majPersonne()" class="btn_action" id="btn_modifier">MODIFIER</button>
-				&nbsp;&nbsp;&nbsp;
-				<button onClick="annulPersonne()" class="btn_save" id="btn_annuler">ANNULER</button>
-			</p>
+			</div>
 		</section>
 
 		<footer><!-- Pied-de-page de la page --></footer>

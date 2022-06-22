@@ -1,8 +1,8 @@
-input[type=text] {
+/* input[type=text] {
     border: none;
     border-bottom: 1px solid #FF0000;
-}
-.input_nombre {
+} */
+/* .input_nombre {
     padding-left: 18px;
     background-image: url(../img/number.png);
     background-repeat: no-repeat;
@@ -38,7 +38,7 @@ button {
     color: #ff0000;
     border: 2px solid #ff0000;
       transition-duration: 1s;
-}
+} */
 .hide {
     display: none;
 }
