@@ -1,3 +1,5 @@
+// constructTable function : HTML injection code for array display. Display 2 buttons to edit and delete array entry.
+
 function constructTable() {
   var i;
 
@@ -44,6 +46,8 @@ function constructTable() {
   sHTML += "</tbody>";
   document.getElementById("table_films").innerHTML = sHTML;
 }
+
+// Array variable with all datas
 
 var aOfvideotheque = [];
 aOfvideotheque[0] = [];
@@ -214,6 +218,8 @@ aOfvideotheque[11]["visione"] = "Oui";
 aOfvideotheque[11]["note"] = "4";
 aOfvideotheque[11]["steelBox"] = "Non";
 
+// Add a new film function
+
 function ajoutFilm() {
   var iLongueur = aOfvideotheque.length;
   aOfvideotheque[iLongueur] = [];
@@ -235,6 +241,9 @@ function ajoutFilm() {
   resetForm();
 }
 
+
+//  Function that reset all fields of the form
+
 function resetForm(){
 document.getElementById("titre").value="";
 document.getElementById("annee").value="";
@@ -250,6 +259,9 @@ document.getElementById("yes").checked=true;
 document.getElementById("steelBox").checked=false;
 
 }
+
+
+// function that update the entry after value change in the form
 
 function majFilm() {
 
@@ -274,6 +286,9 @@ function majFilm() {
 
 }
 
+
+// Function : delete an entry from the array using the index of this entry
+
 function supprimFilm(iIndiceSupprim) {
   var choice = confirm("Vous allez supprimer la fiche n° : " + iIndiceSupprim + ". Etes-vous sûr?");
     if (choice){
@@ -282,6 +297,9 @@ function supprimFilm(iIndiceSupprim) {
     }
     constructTable();
 }
+
+
+// Function : load all datas of an entry and display them in fiels of the form 
 
 var iIndiceEditionEncours;
 function editFilm(iIndiceEdit) {
