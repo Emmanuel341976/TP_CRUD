@@ -38,14 +38,27 @@ function constructTable() {
     sHTML += "<td>" + aOfvideotheque[i]["visione"] + "</td>";
     sHTML += "<td>" + aOfvideotheque[i]["note"] + "</td>";
     sHTML += "<td>" + aOfvideotheque[i]["steelBox"] + "</td>";
-    sHTML += '<td><button type="button" onClick="editFilm(' + i + ')" class="btn-primary" id="btn_ajouter">Editer</button></td>';
-    sHTML += '<td><button type="button" onClick="supprimFilm(' + i + ')" class="btn-danger" id="btn_ajouter">Supprimer</button></td>';
+    sHTML +=
+      '<td><button type="button" onClick="editFilm(' +
+      i +
+      ')" class="btn-primary" id="btn_ajouter">Editer</button></td>';
+    sHTML +=
+      '<td><button type="button" onClick="supprimFilm(' +
+      i +
+      ')" class="btn-danger" id="btn_ajouter">Supprimer</button></td>';
     sHTML += "</tr>";
   }
 
   sHTML += "</tbody>";
   document.getElementById("table_films").innerHTML = sHTML;
 }
+
+var tables;
+$(document).ready(function () {
+  constructTable();
+  //INIT DATATABLE
+  tables = $("#table_films").DataTable(configuration);
+});
 
 // Array variable with all datas
 
@@ -65,7 +78,8 @@ aOfvideotheque[0]["note"] = "2";
 aOfvideotheque[0]["steelBox"] = "Oui";
 
 aOfvideotheque[1] = [];
-aOfvideotheque[1]["titre"] = "Le seigneur des anneaux la communauté de l'anneau";
+aOfvideotheque[1]["titre"] =
+  "Le seigneur des anneaux la communauté de l'anneau";
 aOfvideotheque[1]["annee"] = "2001";
 aOfvideotheque[1]["realisateur"] = "Peter Jackson";
 aOfvideotheque[1]["acteur"] = "Elijah Wood";
@@ -225,81 +239,110 @@ function ajoutFilm() {
   aOfvideotheque[iLongueur] = [];
   aOfvideotheque[iLongueur]["titre"] = document.querySelector("#titre").value;
   aOfvideotheque[iLongueur]["annee"] = document.querySelector("#annee").value;
-  aOfvideotheque[iLongueur]["realisateur"] = document.querySelector("#realisateur").value;
+  aOfvideotheque[iLongueur]["realisateur"] =
+    document.querySelector("#realisateur").value;
   aOfvideotheque[iLongueur]["acteur"] = document.querySelector("#acteur").value;
   aOfvideotheque[iLongueur]["genre"] = document.querySelector("#genre").value;
-  aOfvideotheque[iLongueur]["classement"] = document.querySelector("#classement-select").value;
+  aOfvideotheque[iLongueur]["classement"] =
+    document.querySelector("#classement-select").value;
   aOfvideotheque[iLongueur]["type"] = document.querySelector("#type").value;
-  aOfvideotheque[iLongueur]["support"] = document.querySelector("#support-select").value;
-  aOfvideotheque[iLongueur]["pret"] = document.querySelector('input[name="pret"]:checked').value;
-  aOfvideotheque[iLongueur]["visione"] = document.querySelector('input[name="visione"]:checked').value;
+  aOfvideotheque[iLongueur]["support"] =
+    document.querySelector("#support-select").value;
+  aOfvideotheque[iLongueur]["pret"] = document.querySelector(
+    'input[name="pret"]:checked'
+  ).value;
+  aOfvideotheque[iLongueur]["visione"] = document.querySelector(
+    'input[name="visione"]:checked'
+  ).value;
   aOfvideotheque[iLongueur]["note"] = document.querySelector("#note").value;
-  if (document.querySelector("#steelBox").checked){
-  aOfvideotheque[iLongueur]["steelBox"] = "Oui";}
-  else{aOfvideotheque[iLongueur]["steelBox"] = "Non";}
+  if (document.querySelector("#steelBox").checked) {
+    aOfvideotheque[iLongueur]["steelBox"] = "Oui";
+  } else {
+    aOfvideotheque[iLongueur]["steelBox"] = "Non";
+  }
+
+  tables.clear();
+  tables.destroy();
   constructTable();
+  tables = $("#table_films").DataTable(configuration);
   resetForm();
 }
 
-
 //  Function that reset all fields of the form
 
-function resetForm(){
-document.getElementById("titre").value="";
-document.getElementById("annee").value="";
-document.getElementById("realisateur").value="";
-document.getElementById("acteur").value="";
-document.getElementById("classement-select").value="";
-document.getElementById("genre").value="";
-document.getElementById("type").value="";
-document.getElementById("support-select").value="";
-document.getElementById("note").value="";
-document.getElementById("oui").checked=true;
-document.getElementById("yes").checked=true;
-document.getElementById("steelBox").checked=false;
-
+function resetForm() {
+  document.getElementById("titre").value = "";
+  document.getElementById("annee").value = "";
+  document.getElementById("realisateur").value = "";
+  document.getElementById("acteur").value = "";
+  document.getElementById("classement-select").value = "";
+  document.getElementById("genre").value = "";
+  document.getElementById("type").value = "";
+  document.getElementById("support-select").value = "";
+  document.getElementById("note").value = "";
+  document.getElementById("oui").checked = true;
+  document.getElementById("yes").checked = true;
+  document.getElementById("steelBox").checked = false;
 }
-
 
 // function that update the entry after value change in the form
 
 function majFilm() {
-
   aOfvideotheque[iIndiceEditionEncours] = [];
-  aOfvideotheque[iIndiceEditionEncours]["titre"] = document.querySelector("#titre").value;
-  aOfvideotheque[iIndiceEditionEncours]["annee"] = document.querySelector("#annee").value;
-  aOfvideotheque[iIndiceEditionEncours]["realisateur"] = document.querySelector("#realisateur").value;
-  aOfvideotheque[iIndiceEditionEncours]["acteur"] = document.querySelector("#acteur").value;
-  aOfvideotheque[iIndiceEditionEncours]["genre"] = document.querySelector("#genre").value;
-  aOfvideotheque[iIndiceEditionEncours]["classement"] = document.querySelector("#classement-select").value;
-  aOfvideotheque[iIndiceEditionEncours]["type"] = document.querySelector("#type").value;
-  aOfvideotheque[iIndiceEditionEncours]["support"] = document.querySelector("#support-select").value;
-  aOfvideotheque[iIndiceEditionEncours]["pret"] = document.querySelector('input[name="pret"]:checked').value;
-  aOfvideotheque[iIndiceEditionEncours]["visione"] = document.querySelector('input[name="visione"]:checked').value;
-  aOfvideotheque[iIndiceEditionEncours]["note"] = document.querySelector("#note").value;
-  if (document.querySelector("#steelBox").checked){
-  aOfvideotheque[iIndiceEditionEncours]["steelBox"] = "Oui";}
-  else{aOfvideotheque[iIndiceEditionEncours]["steelBox"] = "Non";}
+  aOfvideotheque[iIndiceEditionEncours]["titre"] =
+    document.querySelector("#titre").value;
+  aOfvideotheque[iIndiceEditionEncours]["annee"] =
+    document.querySelector("#annee").value;
+  aOfvideotheque[iIndiceEditionEncours]["realisateur"] =
+    document.querySelector("#realisateur").value;
+  aOfvideotheque[iIndiceEditionEncours]["acteur"] =
+    document.querySelector("#acteur").value;
+  aOfvideotheque[iIndiceEditionEncours]["genre"] =
+    document.querySelector("#genre").value;
+  aOfvideotheque[iIndiceEditionEncours]["classement"] =
+    document.querySelector("#classement-select").value;
+  aOfvideotheque[iIndiceEditionEncours]["type"] =
+    document.querySelector("#type").value;
+  aOfvideotheque[iIndiceEditionEncours]["support"] =
+    document.querySelector("#support-select").value;
+  aOfvideotheque[iIndiceEditionEncours]["pret"] = document.querySelector(
+    'input[name="pret"]:checked'
+  ).value;
+  aOfvideotheque[iIndiceEditionEncours]["visione"] = document.querySelector(
+    'input[name="visione"]:checked'
+  ).value;
+  aOfvideotheque[iIndiceEditionEncours]["note"] =
+    document.querySelector("#note").value;
+  if (document.querySelector("#steelBox").checked) {
+    aOfvideotheque[iIndiceEditionEncours]["steelBox"] = "Oui";
+  } else {
+    aOfvideotheque[iIndiceEditionEncours]["steelBox"] = "Non";
+  }
+
+  tables.clear();
+  tables.destroy();
   constructTable();
+  tables = $("#table_films").DataTable(configuration);
   resetForm();
-
-
 }
-
 
 // Function : delete an entry from the array using the index of this entry
 
 function supprimFilm(iIndiceSupprim) {
-  var choice = confirm("Vous allez supprimer la fiche n° : " + iIndiceSupprim + ". Etes-vous sûr?");
-    if (choice){
-      aOfvideotheque.splice(iIndiceSupprim, 1);
+  var choice = confirm(
+    "Vous allez supprimer la fiche n° : " + iIndiceSupprim + ". Etes-vous sûr?"
+  );
+  if (choice) {
+    aOfvideotheque.splice(iIndiceSupprim, 1);
+  }
 
-    }
-    constructTable();
+  tables.clear();
+  tables.destroy();
+  constructTable();
+  tables = $("#table_films").DataTable(configuration);
 }
 
-
-// Function : load all datas of an entry and display them in fiels of the form 
+// Function : load all datas of an entry and display them in fiels of the form
 
 var iIndiceEditionEncours;
 function editFilm(iIndiceEdit) {
@@ -307,111 +350,108 @@ function editFilm(iIndiceEdit) {
   iIndiceEditionEncours = iIndiceEdit;
   document.querySelector("#titre").value = aOfvideotheque[iIndiceEdit]["titre"];
   document.querySelector("#annee").value = aOfvideotheque[iIndiceEdit]["annee"];
-  document.querySelector("#realisateur").value = aOfvideotheque[iIndiceEdit]["realisateur"];
-  document.querySelector("#acteur").value = aOfvideotheque[iIndiceEdit]["acteur"];
+  document.querySelector("#realisateur").value =
+    aOfvideotheque[iIndiceEdit]["realisateur"];
+  document.querySelector("#acteur").value =
+    aOfvideotheque[iIndiceEdit]["acteur"];
   document.querySelector("#genre").value = aOfvideotheque[iIndiceEdit]["genre"];
   document.querySelector("#type").value = aOfvideotheque[iIndiceEdit]["type"];
-  document.getElementById("classement-select").value = aOfvideotheque[iIndiceEdit]["classement"];
-  document.getElementById("support-select").value = aOfvideotheque[iIndiceEdit]["support"];
-  if (aOfvideotheque[iIndiceEditionEncours]["pret"] === "Oui"){
+  document.getElementById("classement-select").value =
+    aOfvideotheque[iIndiceEdit]["classement"];
+  document.getElementById("support-select").value =
+    aOfvideotheque[iIndiceEdit]["support"];
+  if (aOfvideotheque[iIndiceEditionEncours]["pret"] === "Oui") {
     document.querySelector("#oui").checked = true;
-  }
-  else{
+  } else {
     document.querySelector("#non").checked = true;
   }
-  if (aOfvideotheque[iIndiceEditionEncours]["visione"] === "Oui"){
+  if (aOfvideotheque[iIndiceEditionEncours]["visione"] === "Oui") {
     document.querySelector("#yes").checked = true;
-  }
-  else{
+  } else {
     document.querySelector("#no").checked = true;
   }
 
   document.querySelector("#note").value = aOfvideotheque[iIndiceEdit]["note"];
-  if (aOfvideotheque[iIndiceEdit]["steelBox"] === "Oui"){
+  if (aOfvideotheque[iIndiceEdit]["steelBox"] === "Oui") {
     document.querySelector("#steelBox").checked = true;
-  }
-  else{
+  } else {
     document.querySelector("#steelBox").checked = false;
   }
 }
 
-// // CONFIGURATION DATATABLE
-// const configuration = {
-//   stateSave: false,
+// CONFIGURATION DATATABLE
+const configuration = {
+  stateSave: false,
 
-//   order: [[1, "asc"]],
+  order: [[1, "asc"]],
 
-//   pagingType: "simple_numbers",
+  pagingType: "simple_numbers",
 
-//   searching: true,
+  searching: true,
 
-//   lengthMenu: [
-//     [5, 10, 25, 50, 100, -1],
-//     ["Cinq", "Dix", "Vingt cinq", "Cinquante", "Cent", "Tout"],
-//   ],
+  lengthMenu: [
+    [5, 10, 25, 50, 100, -1],
+    ["Cinq", "Dix", "Vingt cinq", "Cinquante", "Cent", "Tout"],
+  ],
 
-//   language: {
-//     info: "Utilisateurs _START_ à _END_ sur _TOTAL_ sélectionnées",
-//     emptyTable: "Aucun utilisateur",
-//     lengthMenu: "_MENU_ Utilisateurs par page",
-//     search: "Rechercher : ",
-//     zeroRecords: "Aucun résultat de recherche",
-//     paginate: {
-//       previous: "Précédent",
-//       next: "Suivant",
-//     },
-//     sInfoFiltered: "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
-//     sInfoEmpty: "Utilisateurs 0 à 0 sur 0 sélectionnée",
-//   },
+  language: {
+    info: "Films _START_ à _END_ sur _TOTAL_ sélectionnées",
+    emptyTable: "Aucun film",
+    lengthMenu: "_MENU_ Film par page",
+    search: "Rechercher : ",
+    zeroRecords: "Aucun résultat de recherche",
+    paginate: {
+      previous: "Précédent",
+      next: "Suivant",
+    },
+    sInfoFiltered: "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+    sInfoEmpty: "Utilisateurs 0 à 0 sur 0 sélectionnée",
+  },
 
-//   columns: [
-//     {
-//       orderable: true,
-//     },
-//     {
-//       orderable: true,
-//     },
-//     {
-//       orderable: true,
-//     },
-//     {
-//       orderable: true,
-//     },
-//     {
-//       orderable: true,
-//     },
-//     {
-//       orderable: true,
-//     },
-//     {
-//       orderable: true,
-//     },
-//     {
-//       orderable: true,
-//     },
-//     {
-//       orderable: true,
-//     },
-//     {
-//       orderable: true,
-//     },
-//     {
-//       orderable: true,
-//     },
-//     {
-//       orderable: false,
-//     },
-//     {
-//       orderable: false,
-//     },
-//   ],
+  columns: [
+    {
+      orderable: true,
+    },
+    {
+      orderable: true,
+    },
+    {
+      orderable: true,
+    },
+    {
+      orderable: true,
+    },
+    {
+      orderable: true,
+    },
+    {
+      orderable: true,
+    },
+    {
+      orderable: true,
+    },
+    {
+      orderable: true,
+    },
+    {
+      orderable: true,
+    },
+    {
+      orderable: true,
+    },
+    {
+      orderable: true,
+    },
+    {
+      orderable: true,
+    },
+    {
+      orderable: false,
+    },
+    {
+      orderable: false,
+    },
+  ],
 
-//   retrieve: true,
-// };
-
-var tables;
-$(document).ready(function () {
-  constructTable();
-  // INIT DATATABLE
-  // tables = $("#table_films").DataTable(configuration);
-});
+  retrieve: true,
+};
